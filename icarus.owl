@@ -101,6 +101,14 @@ ICARUS ontology has three main representative entities:
     
 
 
+    <!-- https://data.nasa.gov/ontologies/atmonto/data#dewpointTemperature -->
+
+    <owl:AnnotationProperty rdf:about="https://data.nasa.gov/ontologies/atmonto/data#dewpointTemperature">
+        <rdfs:domain rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#WeatherCondition"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -122,17 +130,17 @@ ICARUS ontology has three main representative entities:
 
     <!-- https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalCondition -->
 
-    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalCondition">
+    <owl:ObjectProperty rdf:about="https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalCondition">
         <rdfs:range rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalReport"/>
-    </rdf:Description>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalReport -->
 
-    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalReport">
+    <owl:ObjectProperty rdf:about="https://data.nasa.gov/ontologies/atmonto/data#hasMeteorologicalReport">
         <rdfs:range rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalReport"/>
-    </rdf:Description>
+    </owl:ObjectProperty>
     
 
 
@@ -586,14 +594,6 @@ ICARUS ontology has three main representative entities:
         <rdfs:domain rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#AirportStatisticsData"/>
         <rdfs:domain rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalReport"/>
         <rdfs:domain rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#RunwayStatusData"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://data.nasa.gov/ontologies/atmonto/data#dewpointTemperature -->
-
-    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/data#dewpointTemperature">
-        <rdfs:domain rdf:resource="https://data.nasa.gov/ontologies/atmonto/data#WeatherCondition"/>
     </rdf:Description>
     
 
@@ -1817,7 +1817,6 @@ ICARUS ontology has three main representative entities:
     <!-- urn:absolute:icarus#disease_city -->
 
     <owl:DatatypeProperty rdf:about="urn:absolute:icarus#disease_city">
-        <rdfs:domain rdf:resource="urn:absolute:icarus#Disease"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -1856,7 +1855,6 @@ ICARUS ontology has three main representative entities:
     <!-- urn:absolute:icarus#disease_country -->
 
     <owl:DatatypeProperty rdf:about="urn:absolute:icarus#disease_country">
-        <rdfs:domain rdf:resource="urn:absolute:icarus#Disease"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -3575,10 +3573,10 @@ ICARUS ontology has three main representative entities:
 
     <!-- http://www.ifomis.org/bfo/1.1#Entity -->
 
-    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1#Entity">
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1#Entity">
         <owl:equivalentClass rdf:resource="urn:absolute:icarus#Disease"/>
         <rdfs:subClassOf rdf:resource="urn:absolute:icarus#Epidemiology_Ontology"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
@@ -3642,11 +3640,23 @@ ICARUS ontology has three main representative entities:
     
 
 
+    <!-- https://data.nasa.gov/ontologies/atmonto/data#AirportStatisticsData -->
+
+    <owl:Class rdf:about="https://data.nasa.gov/ontologies/atmonto/data#AirportStatisticsData"/>
+    
+
+
     <!-- https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalCondition -->
 
     <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalCondition">
         <rdfs:subClassOf rdf:resource="urn:absolute:icarus#NASA_Ontology"/>
     </rdf:Description>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalReport -->
+
+    <owl:Class rdf:about="https://data.nasa.gov/ontologies/atmonto/data#MeteorologicalReport"/>
     
 
 
@@ -4608,7 +4618,7 @@ ICARUS ontology has three main representative entities:
 
     <owl:NamedIndividual rdf:about="urn:absolute:icarus#I_D1_R1_C4_dep_terminal">
         <rdf:type rdf:resource="https://data.nasa.gov/ontologies/atmonto/NAS#Terminal"/>
-        <NAS:terminalID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</NAS:terminalID>
+        <NAS:terminalID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</NAS:terminalID>
     </owl:NamedIndividual>
     
 
@@ -4617,7 +4627,7 @@ ICARUS ontology has three main representative entities:
 
     <owl:NamedIndividual rdf:about="urn:absolute:icarus#I_D1_R1_C5_dep_gate">
         <rdf:type rdf:resource="https://data.nasa.gov/ontologies/atmonto/NAS#Gate"/>
-        <NAS:gateID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</NAS:gateID>
+        <NAS:gateID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</NAS:gateID>
     </owl:NamedIndividual>
     
 
@@ -4659,7 +4669,7 @@ ICARUS ontology has three main representative entities:
 
     <owl:NamedIndividual rdf:about="urn:absolute:icarus#I_D1_R2_C4_dep_terminal">
         <rdf:type rdf:resource="https://data.nasa.gov/ontologies/atmonto/NAS#Terminal"/>
-        <NAS:terminalID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</NAS:terminalID>
+        <NAS:terminalID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6</NAS:terminalID>
     </owl:NamedIndividual>
     
 
@@ -4667,7 +4677,7 @@ ICARUS ontology has three main representative entities:
     <!-- urn:absolute:icarus#I_D1_R2_C5_dep_gate -->
 
     <owl:NamedIndividual rdf:about="urn:absolute:icarus#I_D1_R2_C5_dep_gate">
-        <NAS:gateID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</NAS:gateID>
+        <NAS:gateID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18</NAS:gateID>
     </owl:NamedIndividual>
     
 
@@ -4916,7 +4926,7 @@ ICARUS ontology has three main representative entities:
 
     <owl:NamedIndividual rdf:about="urn:absolute:icarus#I_D3_R3_C5_Deaths">
         <rdf:type rdf:resource="urn:absolute:icarus#Disease"/>
-        <icarus:disease_confirmed_deaths>5</icarus:disease_confirmed_deaths>
+        <icarus:disease_confirmed_deaths rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</icarus:disease_confirmed_deaths>
         <icarus:row_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</icarus:row_id>
     </owl:NamedIndividual>
     
